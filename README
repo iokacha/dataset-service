@@ -6,7 +6,19 @@
 
 
 
+# Get all datasets
+curl -X GET "$(docker-machine ip devel):8000/dataset"
+
+# Create Dataset
+curl -X POST \
+	-H "Content-Type: application/json" \
+	--data '{"id":"int","nom":"string","prenom":"string","date_naissance":"date"}' \
+	"$(docker-machine ip devel):8000/dataset/1"
 
 
-curl -F "data=@data.csv" "$(docker-machine ip devel):8000/dataset/1/data"
-curl -X POST -H "Content-Type: text/plain" -d "data=@./sample/data.csv" "$(docker-machine ip devel):8000/dataset/1/data"
+# Upload dataset
+curl -F "data=@data.csv" \
+	$(docker-machine ip devel):8000/dataset/1/data
+
+# Get Dataset
+curl -X GET $(docker-machine ip devel):8000/dataset/1/data

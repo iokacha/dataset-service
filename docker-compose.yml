@@ -1,0 +1,15 @@
+web:
+  build: ./services/api
+  ports:
+   - "8000:8000"
+  volumes:
+   - ./services/api:/code
+  links:
+    - "db:mongo"
+
+db:
+  image: mongo:3.7.9
+  ports:
+   - "27017:27017"
+  volumes:
+   - ./services/db:/db

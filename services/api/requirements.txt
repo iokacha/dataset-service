@@ -1,0 +1,5 @@
+flask==0.12.4
+Flask-PyMongo==2.0.0
+pandas
+jsonschema
+gunicorn

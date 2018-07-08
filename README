@@ -1,0 +1,12 @@
+1 - docker-machine start devel  
+2 - eval $(docker-machine env devel)
+3 - docker-coompose build 
+4 - docker-compose up -d
+5 - open "$(docker-machine ip devel):8000"
+
+
+
+
+
+curl -F "data=@data.csv" "$(docker-machine ip devel):8000/dataset/1/data"
+curl -X POST -H "Content-Type: text/plain" -d "data=@./sample/data.csv" "$(docker-machine ip devel):8000/dataset/1/data"
